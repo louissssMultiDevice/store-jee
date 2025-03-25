@@ -1,16 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    text-align: center;
-}
+    text-align: center
 
-.logo {
-    width: 200px; 
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover; 
-    display: block;
-    margin: 0 auto; 
 }
 
 .container {
