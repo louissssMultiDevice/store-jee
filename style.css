@@ -4,6 +4,15 @@ body {
     text-align: center;
 }
 
+.logo {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; 
+    display: block;
+    margin: 0 auto; 
+}
+
 .container {
     max-width: 600px;
     margin: auto;
