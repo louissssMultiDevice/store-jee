@@ -331,6 +331,11 @@
                 <input type="text" id="idFF" placeholder="Masukkan ID Game" required>
     <button onclick="orderSkin()">Order via WhatsApp</button>
             </div>
+            <th>Contact Us</th>
+          <a href="https://wa.me/6282129922973?text=Halo,+saya+ingin+memebeli+skin:+${skin}+pembayaran+via+apa+aja?`;`;" target="_blank">
+    Order via WhatsApp
+          </a>
+        </div>
 <script>
     function orderWA() {
     let nomorWA = "6282129922973";
@@ -363,7 +368,7 @@
         }
     function orderSkin() {
         let idML = document.getElementById("idML").value;
-        let skin = document.getElementById("jumlahDM").value
+        let skin = document.getElementById("game").value
         let nomorWA = "6282129922973";
 
         if (idML && skin) {
