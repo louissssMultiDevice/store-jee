@@ -3,187 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menjual Kebutuhan Game dan Top-Up Murah</title>
+    <title>Jee Store - Top Up Murah</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="icon" type="image/png" href=""https:IMG-20250325-WA0488.jpg>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
-        th { background-color: #f4f4f4; }
-        .order { margin-top: 20px; font-weight: bold; }
-    </style>
 </head>
 <body>
 
-    <div class="container mt-5 text-center">
-        <img src="IMG-20250325-WA0488.jpg" alt="Logo" width="200">
-        <h1>Store JEE</h1>
-    
-        <h2 class="mt-3">💎 Store JEE - Top Up Murah 💎</h2>
-        <p>Top-Up Free Fire, MLBB, PUBG, dan lainnya dengan harga murah!</p>
-        <p>Gaperlu keluar rumah! cukup di Store Jee kamu udah bisa membeli diamond lewat website</p>
-        <p>Yang Pasti Aman, Berkualitas, Amanah, anti php!</p>
-        <p>Scroll Ke Bawah Untuk Melihat Hal Lain Yang Kami Jual</p>
-        
-        <h3>Harga Diamond</h3>
-        <table>
-            <tr>
-                <th>Jumlah DM</th>
-                <th>Harga</th>
-            </tr>
-            <tr><td>5 DM</td><td>Rp 1.000</td></tr>
-            <tr><td>12 DM</td><td>Rp 2.100</td></tr>
-            <tr><td>50 DM</td><td>Rp 7.100</td></tr>
-            <tr><td>70 DM</td><td>Rp 9.100</td></tr>
-            <tr><td>100 DM</td><td>Rp 14.000</td></tr>
-            <tr><td>140 DM</td><td>Rp 18.000</td></tr>
-            <tr><td>210 DM</td><td>Rp 30.000</td></tr>
-            <tr><td>355 DM</td><td>Rp 44.500</td></tr>
-            <tr><td>405 DM</td><td>Rp 52.000</td></tr>
-            <tr><td>720 DM</td><td>Rp 89.000</td></tr>
-            <tr><td>1450 DM</td><td>Rp 181.000</td></tr>
-            <tr><td>2180 DM</td><td>Rp 275.000</td></tr>
-            <tr><td>3640 DM</td><td>Rp 462.500</td></tr>
-        </table>
+    <header>
+        <img src="logo.png" alt="Jee Store Logo" class="logo">
+        <h1># Store JEE</h1>
+        <p class="description">
+            💎 Store JEE - Top Up Murah 💎 <br>
+            Top-Up Free Fire, MLBB, PUBG, dan lainnya dengan harga murah! <br>
+            Gaperlu keluar rumah! cukup di Store Jee kamu udah bisa membeli diamond lewat website <br>
+            Yang Pasti Aman, Berkualitas, Amanah, anti php! <br>
+            Scroll Ke Bawah Untuk Melihat Hal Lain Yang Kami Jual
+        </p>
+    </header>
 
-        <h4 class="mt-3">Beli diamond gaperlu keluar rumah, cukup di Store Jee!</span></h4>
-        <div class="order">
-    <p><strong>Pesan Sekarang:</strong></p>
-
-            <div class="mt-4">
-            <label class="form-label">Pilih Game</label>
-            <select id="game" class="form-select">
-                <option value="Free Fire">Free Fire</option>
-                <option value="Mobile Legends">Mobile Legends</option>
-                <option value="PUBG Mobile">PUBG Mobile</option>
-            </select>
+    <section class="product-list">
+        <div class="product">
+            <img src="diamond.png" alt="Diamond" class="product-img">
+            <h2>Diamond Amanah & Murah</h2>
+            <p>Proses cepat dan terpercaya.</p>
+            <button onclick="showOptions('diamond')">Lihat Harga</button>
+            <div id="diamond-options" class="options">
+                <select id="diamond-select">
+                    <option value="1000">5 DM - Rp 1.000</option>
+                    <option value="2100">12 DM - Rp 2.100</option>
+                    <option value="7100">50 DM - Rp 7.100</option>
+                    <option value="14000">100 DM - Rp 14.000</option>
+                    <option value="30000">210 DM - Rp 30.000</option>
+                    <option value="44000">355 DM - Rp 44.000</option>
+                    <option value="52000">405 DM - Rp 52.000</option>
+                    <option value="89000">720 DM - Rp 89.000</option>
+                    <option value="181000">1450 DM - Rp 181.000</option>
+                    <option value="275000">2180 DM - Rp 275.000</option>
+                    <option value="462000">3640 DM - Rp 462.000</option>
+                </select>
+                <button onclick="buyProduct('diamond')">Beli Sekarang</button>
             </div>
-             <div class="mt-3">
-            <label class="form-label">Pilih Diamond</label>
-            <select id="diamond" class="form-select" onchange="hitungHarga()">
-                <option value="1000">5 DM - Rp 1.000</option>
-                <option value="2100">12 DM - Rp 2.100</option>
-                <option value="7100">50 DM - Rp 7.100</option>
-                <option value="14000">100 DM - Rp 14.000</option>
-                <option value="30000">210 DM - Rp 30.000</option>
-                <option value="44000">355 DM - Rp 44.000</option>
-                <option value="52000">405 DM - Rp 52.000</option>
-                <option value="89000">720 DM - Rp 89.000</option>
-                <option value="181000">1450 DM - Rp 181.000</option>
-                <option value="275000">2180 DM - Rp 275.000</option>
-                <option value="462000">3640 DM - Rp 462.000</option>
-            </select>
-             </div>
-    <input type="text" id="idFF" placeholder="Masukkan ID Game" required>
-    <button onclick="orderWhatsApp()">Order via WhatsApp</button>
-</div>
-
-
-        <div class="con
-            <h2>Daftar Skin ML Yang Kami Jual</h2>
-        </div>
-<div class="cont
-<h2>📜 Daftar Skin Mobile Legends</h2>
-<table border="1">
-    <tr>
-        <th>Nama Skin</th>
-        <th>Harga</th>
-        <th>Beli</th>
-    </tr>
-
-    <!-- 80K -->
-    <tr><td colspan="3" align="center"><b>80K</b></td></tr>
-    <tr><td>KHUFRA VOLCANIC OVERLORD</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin KHUFRA VOLCANIC OVERLORD" target="_blank">Beli</a></td></tr>
-    <tr><td>PHARSA EMPRESS PHOENIX</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin PHARSA EMPRESS PHOENIX" target="_blank">Beli</a></td></tr>
-    <tr><td>VALIR DEMONLORD</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin VALIR DEMONLORD" target="_blank">Beli</a></td></tr>
-    <tr><td>BADANG FIST OF ZEN</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin BADANG FIST OF ZEN" target="_blank">Beli</a></td></tr>
-    <tr><td>YI SUN-SHIN LONE DESTRUCTOR</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin YI SUN-SHIN LONE DESTRUCTOR" target="_blank">Beli</a></td></tr>
-    <tr><td>YU ZHONG BLOOD SERPENT</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin YU ZHONG BLOOD SERPENT" target="_blank">Beli</a></td></tr>
-    <tr><td>GUSION NIGHT OWL</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin GUSION NIGHT OWL" target="_blank">Beli</a></td></tr>
-    <tr><td>WANWAN PIXEL BLAST</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin WANWAN PIXEL BLAST" target="_blank">Beli</a></td></tr>
-    <tr><td>LING SERENE PLUME</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin LING SERENE PLUME" target="_blank">Beli</a></td></tr>
-    <tr><td>ZILONG EMPYREAN PALADIN</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin ZILONG EMPYREAN PALADIN" target="_blank">Beli</a></td></tr>
-    <tr><td>BENEDETTA DEATH OATH</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin BENEDETTA DEATH OATH" target="_blank">Beli</a></td></tr>
-    <tr><td>SILVANNA QUEEN FROST</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin SILVANNA QUEEN FROST" target="_blank">Beli</a></td></tr>
-    <tr><td>LUO YI ELYSIUM GUARDIAN</td><td>80K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin LUO YI ELYSIUM GUARDIAN" target="_blank">Beli</a></td></tr>
-
-    <!-- 100K -->
-    <tr><td colspan="3" align="center"><b>100K</b></td></tr>
-    <tr><td>POPOL & KUPA SPIRIT OF THE BRUSH</td><td>100K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin POPOL & KUPA SPIRIT OF THE BRUSH" target="_blank">Beli</a></td></tr>
-
-    <!-- 120K -->
-    <tr><td colspan="3" align="center"><b>120K</b></td></tr>
-    <tr><td>JAWHEAD SAMURAI MECH</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin JAWHEAD SAMURAI MECH" target="_blank">Beli</a></td></tr>
-    <tr><td>GRANGER AGENT Z</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin GRANGER AGENT Z" target="_blank">Beli</a></td></tr>
-    <tr><td>ANGELA FLORAL ELF</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin ANGELA FLORAL ELF" target="_blank">Beli</a></td></tr>
-    <tr><td>BALMOND GOD OF MOUNTAINS</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin BALMOND GOD OF MOUNTAINS" target="_blank">Beli</a></td></tr>
-    <tr><td>ESMERALDA LIGHT ENVOY</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin ESMERALDA LIGHT ENVOY" target="_blank">Beli</a></td></tr>
-    <tr><td>ALDOUS REALM WATCHER</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin ALDOUS REALM WATCHER" target="_blank">Beli</a></td></tr>
-    <tr><td>MIYA DOOM CATALYST</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin MIYA DOOM CATALYST" target="_blank">Beli</a></td></tr>
-    <tr><td>HARLEY DREAM CASTER</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin HARLEY DREAM CASTER" target="_blank">Beli</a></td></tr>
-    <tr><td>VEXANA THE SUN EMPRESS</td><td>120K</td><td><a href="https://wa.me/6282129922973?text=Halo, saya ingin membeli skin VEXANA THE SUN EMPRESS" target="_blank">Beli</a></td></tr>
-</table>
-            
-<script>
-    function orderWA() {
-    let nomorWA = "6282129922973";
-    let idGame = document.getElementById("idGame").value;
-    let pilihan = document.getElementById("pilihan").value;
-
-    if (idGame === "") {
-        alert("Masukkan ID Game dulu!");
-        return;
-    }
-
-    let pesan = `Halo, saya ingin top-up%0AID Game: ${idGame}%0APilihan: ${pilihan}`;
-    let urlWA = `https://wa.me/${nomorWA}?text=${pesan}`;
-
-    window.location.href = urlWA;
-}
-        function hitungHarga() {
-            let harga = document.getElementById("diamond").value;
-            document.getElementById("totalHarga").innerText = "Rp " + harga;
-
-            let game = document.getElementById("game").value;
-            let playerID = document.getElementById("playerID").value;
-            let diamond = document.getElementById("diamond").options[document.getElementById("diamond").selectedIndex].text;
-            let skin = document.getElementById("skin").options[document.getElementById("skin").selectedIndex].text;
-
-        
-
-            let waMessage = `https://wa.me/6287717274346?text=Halo, saya ingin top-up ${game}%0A%0AItem: ${playerID}%0ATotal: Rp ${harga}`;
-            document.getElementById("orderBtn").href = waMessage;
-        }
-    function orderSkin() {
-        let idML = document.getElementById("idML").value;
-        let skin = document.getElementById("game").value
-        let nomorWA = "6282129922973";
-
-        if (idML && skin) {
-            let url = `https://wa.me/${nomorWA}?text=Halo,%20saya%20mau%20beli%20{${skin}.%20ID:%20${idML}%0A%0A`;
-            window.open(url, "_blank");
-        } else {
-            alert("Harap isi semua data!");
-    function orderWhatsApp() {
-        let idFF = document.getElementById("idFF").value;
-        let jumlahDM = document.getElementById("jumlahDM").value;
-        let nomorWA = "6282129922973";
-
-        if (idFF && jumlahDM) {
-            let url = `https://wa.me/${nomorWA}?text=Halo,%20saya%20mau%20top-up%20FF.%20ID:%20${idFF}%0A%0AJumlah%20DM:%20${jumlahDM}`;
-            window.open(url, "_blank");
-        } else {
-            alert("Harap isi semua data!");
-        }
-    }
-</script>
         </div>
 
-        <p>Store by JEE</p>
-    </div>
+        <div class="product">
+            <img src="skin.png" alt="Skin ML" class="product-img">
+            <h2>Skin Mobile Legends</h2>
+            <p>Pilihan skin eksklusif Mobile Legends.</p>
+            <button onclick="showOptions('skin')">Lihat Daftar Skin</button>
+            <div id="skin-options" class="options">
+                <select id="skin-select">
+                    <optgroup label="Collector (Rp 80K - 120K)">
+                        <option value="Collector Khufra - Rp 80K">Khufra</option>
+                        <option value="Collector Pharsa - Rp 80K">Pharsa</option>
+                        <option value="Collector Valir - Rp 80K">Valir</option>
+                        <option value="Collector Badang - Rp 80K">Badang</option>
+                        <option value="Collector Yi Sun-Shin - Rp 80K">Yi Sun-Shin</option>
+                        <option value="Collector Yu Zhong - Rp 80K">Yu Zhong</option>
+                        <option value="Collector Gusion - Rp 120K">Gusion</option>
+                        <option value="Collector Wanwan - Rp 120K">Wanwan</option>
+                    </optgroup>
+
+                    <optgroup label="Legend (Rp 120K - 150K)">
+                        <option value="Legend Gord - Rp 120K">Gord</option>
+                        <option value="Legend Lunox - Rp 120K">Lunox</option>
+                        <option value="Legend Miya - Rp 120K">Miya</option>
+                        <option value="Legend Saber - Rp 150K">Saber</option>
+                        <option value="Legend Alucard - Rp 150K">Alucard</option>
+                        <option value="Legend Lesley - Rp 150K">Lesley</option>
+                        <option value="Legend Gusion - Rp 150K">Gusion</option>
+                        <option value="Legend Granger - Rp 150K">Granger</option>
+                    </optgroup>
+
+                    <optgroup label="Epic (Rp 80K - 120K)">
+                        <option value="Epic Alucard - Rp 80K">Alucard</option>
+                        <option value="Epic Alpha - Rp 80K">Alpha</option>
+                        <option value="Epic Chou - Rp 80K">Chou</option>
+                        <option value="Epic Lancelot - Rp 80K">Lancelot</option>
+                        <option value="Epic Martis - Rp 80K">Martis</option>
+                        <option value="Epic Kagura - Rp 80K">Kagura</option>
+                        <option value="Epic Moskov - Rp 80K">Moskov</option>
+                    </optgroup>
+
+                    <optgroup label="Event (Rp 80K - 120K)">
+                        <option value="M-World Skin - Rp 100K">M-World</option>
+                        <option value="Exorcist Skin - Rp 100K">Exorcist</option>
+                        <option value="Aspirants Skin - Rp 100K">Aspirants</option>
+                        <option value="Sanrio Skin - Rp 100K">Sanrio</option>
+                        <option value="Jujutsu Kaisen Skin - Rp 120K">Jujutsu Kaisen</option>
+                        <option value="Transformers Skin - Rp 120K">Transformers</option>
+                    </optgroup>
+                </select>
+                <button onclick="buyProduct('skin')">Beli Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
