@@ -355,6 +355,9 @@
             let game = document.getElementById("game").value;
             let playerID = document.getElementById("playerID").value;
             let diamond = document.getElementById("diamond").options[document.getElementById("diamond").selectedIndex].text;
+            let skin = document.getElementById("skin").options[document.getElementById("skin").selectedIndex].text;
+
+        
 
             let waMessage = `https://wa.me/6287717274346?text=Halo, saya ingin top-up ${game}%0AID: ${playerID}%0AItem: ${diamond}%0ATotal: Rp ${harga}`;
             document.getElementById("orderBtn").href = waMessage;
