@@ -224,20 +224,26 @@
                 </div>
 
                 <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
-                    <h3 class="text-3xl font-bold text-primary-main mb-2">Murnokos</h3>
-                    <p class="text-primary-text/80 mb-4 font-light">Murid Nokos. Panen nokosmu sekarang!</p>
-                    <button class="w-full block text-center py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small hover:bg-primary-accent/80 transition-colors">
-                        LIHAT DETAIL
-                    </button>
-                </div>
-
-                <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
-                    <h3 class="text-3xl font-bold text-primary-main mb-2">Mursuuntik</h3>
-                    <p class="text-primary-text/80 mb-4 font-light">Murid Suntik Sosmed.</p>
-                    <button class="w-full block text-center py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small hover:bg-primary-accent/80 transition-colors">
-                        LIHAT DETAIL
-                    </button>
-                </div>
+    <h3 class="text-3xl font-bold text-primary-main mb-2">Mursuntik</h3>
+    <p class="text-primary-text/80 mb-4 font-light">Murid Suntik Sosmed.</p>
+    <button class="w-full block text-center py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small hover:bg-primary-accent/80 transition-colors show-detail-btn"
+            data-title="Mursuuntik (Murid Suntik Sosmed)"
+            data-desc="<p>Mursuuntik adalah tool untuk meningkatkan engagement dan jumlah followers/likes/views pada platform media sosial tertentu. Tool ini menggunakan algoritma suntikan yang aman dan cepat.</p><p>✅ Fitur Utama: Suntik Followers/Views/Likes Cepat, Auto-Targeting, Update API Reguler.</p><p>💰Harga: CekPM (Premium Access)</p>"
+            data-link="https://wa.me/6285119966904?text=Halo%20saya%20minat%20beli%20SC%20Mursuuntik"
+            data-button-text="GRAB MURSUNTIK">
+        LIHAT DETAIL
+    </button>
+                    <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
+        <h3 class="text-3xl font-bold text-primary-main mb-2">Murnokos</h3>
+        <p class="text-primary-text/80 mb-4 font-light">Murid Nokos. Panen nokosmu sekarang!</p>
+        <button class="w-full block text-center py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small hover:bg-primary-accent/80 transition-colors show-detail-btn"
+                data-title="Murnokos (Murid Nokos)"
+                data-desc="<p>Murnokos adalah script khusus yang dirancang untuk memanen dan memverifikasi akun kosong (nokos) dengan efisien. Cocok untuk Anda yang membutuhkan banyak akun untuk keperluan promosi atau serbuan.</p><p>✅ Fitur Utama: Harvesting Otomatis, Quick Verification, Anti Banned Ringan.</p><p>💰 Harga: CekPM (Lifetime)</p>"
+                data-link="https://wa.me/6285119966904?text=Halo%20saya%20minat%20beli%20SC%20Murnokos"
+                data-button-text="GRAB MURNOKOS">
+            LIHAT DETAIL
+        </button>
+                    </div>
             </div>
         </section>
 
@@ -464,7 +470,71 @@
                 observer.observe(benefitsSection);
             }
             // Tambahkan di dalam document.addEventListener('DOMContentLoaded', () => { ... } )
+// Tambahkan di dalam document.addEventListener('DOMContentLoaded', () => { ... } )
 
+    // LOGIC MODAL DESKRIPSI PRODUK
+    const productModal = document.getElementById('product-modal');
+    const closeProductModalButton = document.getElementById('close-product-modal');
+    const showDetailButtons = document.querySelectorAll('.show-detail-btn');
+
+    // Konten Modal
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const modalOrderButton = document.getElementById('modal-order-button');
+    const modalContent = document.getElementById('modal-content');
+    
+    // Fungsi untuk membuka modal dan mengisi konten
+    const openProductModal = (event) => {
+        const button = event.currentTarget;
+        const title = button.getAttribute('data-title');
+        const desc = button.getAttribute('data-desc');
+        const link = button.getAttribute('data-link');
+        const btnText = button.getAttribute('data-button-text');
+
+        modalTitle.textContent = title;
+        modalBody.innerHTML = desc; // Menggunakan innerHTML karena deskripsi mengandung tag <p>
+        modalOrderButton.href = link;
+        modalOrderButton.textContent = btnText;
+
+        productModal.classList.remove('opacity-0', 'pointer-events-none');
+        productModal.classList.add('opacity-100');
+        modalContent.classList.remove('scale-95');
+        modalContent.classList.add('scale-100');
+        document.documentElement.classList.add('modal-open');
+    };
+
+    // Fungsi menutup modal
+    const closeProductModal = () => {
+        productModal.classList.remove('opacity-100');
+        productModal.classList.add('opacity-0', 'pointer-events-none');
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+        document.documentElement.classList.remove('modal-open');
+    };
+
+    // Event Listeners untuk tombol LIHAT DETAIL
+    showDetailButtons.forEach(button => {
+        button.addEventListener('click', openProductModal);
+    });
+
+    // Event Listener untuk tombol tutup (x)
+    if (closeProductModalButton) {
+        closeProductModalButton.addEventListener('click', closeProductModal);
+    }
+    
+    // Tutup modal jika mengklik di luar konten
+    productModal.addEventListener('click', (e) => {
+        if (e.target.id === 'product-modal') {
+            closeProductModal();
+        }
+    });
+
+    // Tutup modal jika menekan tombol ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && productModal.classList.contains('opacity-100')) {
+            closeProductModal();
+        }
+    })
     // LOGIC MODAL LOGO
     const logoHeader = document.getElementById('logo-header');
     const logoHero = document.getElementById('logo-hero');
