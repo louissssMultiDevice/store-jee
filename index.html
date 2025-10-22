@@ -5,17 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEEKAGENOU Store - SUPER-RISE TECH</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css"> </head>
+    
+    <style>
+        /* ============================= */
+        /* 1. VARIABEL WARNA UNTUK TEMA */
+        /* ============================= */
+
+        /* LIGHT THEME: Kuning (Terang) */
+        .light-theme {
+            --color-primary-main: #FFEB3B; /* Kuning Neon/Emas */
+            --color-primary-accent: #FFC107; /* Kuning Aksen */
+            --color-primary-bg: #FFFFFF; /* Putih */
+            --color-secondary-bg: #F5F5F5; /* Abu Muda */
+            --color-primary-text: #1a1a1a; /* Hitam */
+        }
+
+        /* DARK THEME: Biru Tua + Abu + Hitam */
+        .dark-theme {
+            --color-primary-main: #FFEB3B; /* Tetap Kuning Neon */
+            --color-primary-accent: #1E90FF; /* Biru Neon untuk Aksen */
+            --color-primary-bg: #121212; /* Hitam Gelap */
+            --color-secondary-bg: #1a1a1a; /* Abu Gelap */
+            --color-primary-text: #E0E0E0; /* Abu Terang */
+        }
+
+        /* Penerapan variabel di Tailwind */
+        .bg-primary-bg { background-color: var(--color-primary-bg); }
+        .text-primary-text { color: var(--color-primary-text); }
+        .text-primary-main { color: var(--color-primary-main); }
+        .bg-primary-main { background-color: var(--color-primary-main); }
+        .border-primary-main { border-color: var(--color-primary-main); }
+        .border-primary-accent\/20 { border-color: color-mix(in srgb, var(--color-primary-accent) 20%, transparent); }
+        .bg-secondary-bg { background-color: var(--color-secondary-bg); }
+        .bg-primary-bg\/70 { background-color: color-mix(in srgb, var(--color-primary-bg) 70%, transparent); }
+        .bg-primary-accent\/20 { background-color: color-mix(in srgb, var(--color-primary-accent) 20%, transparent); }
+        
+        /* ============================= */
+        /* 2. ANIMASI & EFEK AESTHETIC */
+        /* ============================= */
+        
+        /* EFEK KHUSUS LOGO GAMBAR (Neon Glow) */
+        .logo-glow {
+            filter: drop-shadow(0 0 8px var(--color-primary-main)) brightness(1.2);
+            transition: all 0.3s ease;
+        }
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 15px var(--color-primary-main)) brightness(1.5);
+        }
+
+        /* Efek Glow untuk Tombol WA */
+        .button-wa-glow {
+            box-shadow: 0 0 15px rgba(52, 211, 153, 0.8); /* Hijau WA */
+        }
+        .dark-theme .button-wa-glow {
+            box-shadow: 0 0 20px var(--color-primary-main); /* Kuning Neon */
+        }
+
+        /* Efek Shadow Teks Hero */
+        .hero-text-shadow {
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .light-theme .hero-text-shadow {
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animasi Tombol Neon */
+        .button-neon {
+            box-shadow: 0 0 15px var(--color-primary-main), 0 0 5px var(--color-primary-main);
+        }
+        .button-neon-small {
+            box-shadow: 0 0 5px var(--color-primary-main);
+        }
+        .button-neon:hover {
+            box-shadow: 0 0 25px var(--color-primary-main), 0 0 10px var(--color-primary-main);
+        }
+
+        /* Animasi Glitch pada Logo */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .logo-glitch:hover {
+            animation: glitch 0.3s infinite alternate;
+        }
+
+        /* Efek Kartu Produk saat Hover */
+        .product-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--color-primary-main);
+        }
+
+        /* Style untuk Stat Bar */
+        .stat-bar {
+            height: 100%;
+            transition: width 1s ease-out; /* Animasi saat loading JS */
+        }
+    </style>
+</head>
 <body class="bg-primary-bg transition-colors duration-500">
 
     <header class="sticky top-0 z-50 shadow-lg bg-primary-bg/95 backdrop-blur-sm border-b border-primary-accent/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#" class="text-4xl font-extrabold text-primary-main hover:text-primary-accent transition-colors logo-glitch">
+            
+            <a href="#" class="text-4xl font-extrabold text-primary-main hover:text-primary-accent transition-colors logo-glitch flex items-center">
+                <img src="{{uploaded:IMG-20251022-WA0117.jpg-f63dd5b7-fb27-4f7b-b16f-34de0f3dfd77}}" alt="JEEKAGENOU Logo" class="w-10 h-10 mr-2 logo-glow rounded-full object-cover">
                 JEEKAGENOU
             </a>
             
             <nav class="hidden md:flex space-x-8 font-medium">
-                <a href="#produk" class="text-primary-text hover:text-primary-main transition-colors">PRODUK</a>
+                <a href="#produk" class="text-primary-text hover:text-primary-main transition-colors">SC TOOLS</a>
+                <a href="#panel" class="text-primary-text hover:text-primary-main transition-colors">PANEL HOSTING</a>
                 <a href="#pricing" class="text-primary-text hover:text-primary-main transition-colors">VIP/RESELLER</a>
                 <a href="#" class="text-primary-text hover:text-primary-main transition-colors">TESTIMONI</a>
                 <a href="https://wa.me/6285119966904" class="text-primary-text hover:text-primary-main transition-colors">KONTAK</a>
@@ -26,8 +130,8 @@
                     <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                     <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                 </button>
-                <a href="#produk" class="px-4 py-2 bg-primary-main text-black font-bold rounded-full shadow-lg button-pulse transition-all hover:scale-105">
-                    BELI SC
+                <a href="#produk" class="px-5 py-2 bg-primary-main text-black font-extrabold rounded-lg shadow-xl button-neon transition-all hover:scale-105 border-2 border-primary-main">
+                    GRAB SC ANDA ⚡
                 </a>
             </div>
         </div>
@@ -35,7 +139,7 @@
 
     <main>
         <section class="relative h-[600px] flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('{{uploaded-file-name}}'); opacity: 0.1; filter: grayscale(100%);"></div>
+            <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('{{uploaded:IMG-20251022-WA0117.jpg-f63dd5b7-fb27-4f7b-b16f-34de0f3dfd77}}'); opacity: 0.1; filter: grayscale(100%);"></div>
             <div class="absolute inset-0 bg-primary-bg/70 z-10"></div>
             
             <div class="z-20 text-center p-6 space-y-4">
@@ -45,14 +149,99 @@
                 <p class="text-xl sm:text-3xl font-light text-primary-text animate-in fade-in-up duration-1500">
                     MAKIN GACOR, MAKIN TAK TERKALAHKAN.
                 </p>
-                <a href="#produk" class="inline-block mt-8 px-10 py-4 text-xl font-bold bg-primary-main text-black rounded-lg button-neon transition-transform duration-300 hover:scale-105 shadow-xl">
-                    PO JUSTIN V1 GEN2 SEKARANG ⚡
+                <a href="#produk" class="inline-block mt-8 px-12 py-5 text-2xl font-black bg-primary-main text-black rounded-xl button-neon transition-transform duration-300 hover:scale-105 shadow-2xl">
+                    PO JUSTIN V1 GEN2 SEKARANG 👑
                 </a>
             </div>
         </section>
-        
+
+        <section id="produk" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-extrabold text-center mb-16 text-primary-text">SC TOOLS S+ TIER</h2>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="p-6 rounded-xl border-4 border-primary-main/70 bg-secondary-bg hover:shadow-2xl product-card transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-3xl font-bold text-primary-main mb-2">SC JUSTIN V1 GEN2</h3>
+                    <p class="text-primary-text/80 mb-4 font-light">S+ Tier Script. All Func New, Instant Forclose, Freezee No Clik.</p>
+                    <div class="space-y-2 mb-6">
+                        <p class="text-primary-text font-mono">PO: <span class="text-primary-main font-bold">40K</span></p>
+                        <p class="text-primary-text font-mono">VIA TELE: <span class="text-primary-main font-bold">60K</span></p>
+                    </div>
+                    <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20beli%20SC%20Justin%20V1%20Gen2" class="w-full block text-center py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small hover:bg-primary-accent/80 transition-colors">
+                        BELI SC 🚀
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
+                    <h3 class="text-3xl font-bold text-primary-main mb-2">Murnokos</h3>
+                    <p class="text-primary-text/80 mb-4 font-light">Script anti-serangan/pelindung perangkat. Pertahanan S+ Tier.</p>
+                    <button class="w-full py-3 font-bold rounded-full bg-primary-accent/20 text-primary-main opacity-70 cursor-not-allowed">
+                        DETAIL SOON ⏳
+                    </button>
+                </div>
+
+                <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
+                    <h3 class="text-3xl font-bold text-primary-main mb-2">Mursuuntik</h3>
+                    <p class="text-primary-text/80 mb-4 font-light">Script penyerang. Serangan Boom Jump, merusak target.</p>
+                    <button class="w-full py-3 font-bold rounded-full bg-primary-accent/20 text-primary-main opacity-70 cursor-not-allowed">
+                        DETAIL SOON 💣
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-main flex items-center justify-center">
+                <span class="text-5xl mr-3">🐉</span> BENEFITS SC JUSTIN V1 GEN2 <span class="text-5xl ml-3">🐉</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="p-6 bg-secondary-bg rounded-xl border-2 border-primary-main/50 benefit-card transition-all duration-300 hover:shadow-xl hover:scale-[1.03]">
+                    <p class="text-primary-main text-xl font-bold mb-2">S+ TIER FUNCTION</p>
+                    <h4 class="text-primary-text text-2xl font-black">ALL funct new <span class="text-red-500">⚠︎</span></h4>
+                    <div class="h-2 w-full bg-primary-accent/20 mt-3"><div class="stat-bar w-0 bg-primary-main" data-stat="100"></div></div>
+                    <p class="text-xs text-primary-text/60 mt-1">Upgrade Maksimal. Tidak Terdeteksi.</p>
+                </div>
+
+                <div class="p-6 bg-secondary-bg rounded-xl border-2 border-primary-main/50 benefit-card transition-all duration-300 hover:shadow-xl hover:scale-[1.03]">
+                    <p class="text-primary-main text-xl font-bold mb-2">KECEPATAN (SPEED)</p>
+                    <h4 class="text-primary-text text-2xl font-black">Instant Forclose</h4>
+                    <div class="h-2 w-full bg-primary-accent/20 mt-3"><div class="stat-bar w-0 bg-primary-main" data-stat="95"></div></div>
+                    <p class="text-xs text-primary-text/60 mt-1">Secepat "Boom Jump" Nishikawa.</p>
+                </div>
+
+                <div class="p-6 bg-secondary-bg rounded-xl border-2 border-primary-main/50 benefit-card transition-all duration-300 hover:shadow-xl hover:scale-[1.03]">
+                    <p class="text-primary-main text-xl font-bold mb-2">COMPATIBILITY</p>
+                    <h4 class="text-primary-text text-2xl font-black">Frezee No Clik (iOS & Android)</h4>
+                    <div class="h-2 w-full bg-primary-accent/20 mt-3"><div class="stat-bar w-0 bg-primary-main" data-stat="90"></div></div>
+                    <p class="text-xs text-primary-text/60 mt-1">Menyerang tanpa batasan perangkat.</p>
+                </div>
+                
+                <div class="p-6 bg-secondary-bg rounded-xl border-2 border-primary-main/50 benefit-card transition-all duration-300 hover:shadow-xl hover:scale-[1.03]">
+                    <p class="text-primary-main text-xl font-bold mb-2">SERANGAN UTAMA</p>
+                    <h4 class="text-primary-text text-2xl font-black">Crash One Mssg</h4>
+                    <div class="h-2 w-full bg-primary-accent/20 mt-3"><div class="stat-bar w-0 bg-primary-main" data-stat="85"></div></div>
+                    <p class="text-xs text-primary-text/60 mt-1">Efisien dan sangat berdampak.</p>
+                </div>
+
+                <div class="p-6 bg-secondary-bg rounded-xl border-2 border-primary-main/50 benefit-card transition-all duration-300 hover:shadow-xl hover:scale-[1.03]">
+                    <p class="text-primary-main text-xl font-bold mb-2">STEALTH</p>
+                    <h4 class="text-primary-text text-2xl font-black">Invisible iOS Crash</h4>
+                    <div class="h-2 w-full bg-primary-accent/20 mt-3"><div class="stat-bar w-0 bg-primary-main" data-stat="88"></div></div>
+                    <p class="text-xs text-primary-text/60 mt-1">Serangan tak terlihat di iOS.</p>
+                </div>
+                
+                <div class="p-6 bg-secondary-bg rounded-xl border-2 border-primary-main/50 benefit-card transition-all duration-300 hover:shadow-xl hover:scale-[1.03]">
+                    <p class="text-primary-main text-xl font-bold mb-2">DURABILITY</p>
+                    <h4 class="text-primary-text text-2xl font-black">Susah di fix</h4>
+                    <div class="h-2 w-full bg-primary-accent/20 mt-3"><div class="stat-bar w-0 bg-primary-main" data-stat="92"></div></div>
+                    <p class="text-xs text-primary-text/60 mt-1">Jangka waktu efektif yang lama.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="panel" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-5xl font-extrabold text-center mb-16 text-primary-text">JEE PANEL HOSTING <span class="text-primary-main">⚡</span></h2>
+            <h2 class="text-5xl font-extrabold text-center mb-16 text-primary-text">ASTA PANEL HOSTING <span class="text-primary-main">⚡</span></h2>
             <p class="text-center text-xl text-primary-text/80 mb-12 max-w-3xl mx-auto">
                 Lagi nyari panel yang berkualitas? Asta menyediakan panel yang jelas kualitas aman, dan pastinya bergaransi. Gak bakal lagi panel kena curi session-nya.
             </p>
@@ -63,34 +252,13 @@
                     <h3 class="text-3xl font-bold text-primary-main mb-6 border-b pb-3 border-primary-accent/30">PILIHAN PANEL RAM</h3>
                     <div class="space-y-4">
                         
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 2 Gb</span>
-                            <span class="text-primary-main font-bold">Rp3.000</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 3 Gb</span>
-                            <span class="text-primary-main font-bold">Rp4.000</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 4 Gb</span>
-                            <span class="text-primary-main font-bold">Rp5.000</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 5 Gb</span>
-                            <span class="text-primary-main font-bold">Rp6.000</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 6 Gb</span>
-                            <span class="text-primary-main font-bold">Rp7.000</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 7 Gb</span>
-                            <span class="text-primary-main font-bold">Rp8.000</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors">
-                            <span class="text-primary-text font-medium">🏷️ RAM 8 Gb</span>
-                            <span class="text-primary-main font-bold">Rp9.000</span>
-                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 2 Gb</span><span class="text-primary-main font-bold">Rp3.000</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 3 Gb</span><span class="text-primary-main font-bold">Rp4.000</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 4 Gb</span><span class="text-primary-main font-bold">Rp5.000</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 5 Gb</span><span class="text-primary-main font-bold">Rp6.000</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 6 Gb</span><span class="text-primary-main font-bold">Rp7.000</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 7 Gb</span><span class="text-primary-main font-bold">Rp8.000</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary-accent/10 hover:bg-primary-accent/10 px-2 rounded-lg transition-colors"><span class="text-primary-text font-medium">🏷️ RAM 8 Gb</span><span class="text-primary-main font-bold">Rp9.000</span></div>
                         <div class="flex justify-between items-center py-3 px-2 rounded-lg bg-primary-main/20 border-l-4 border-primary-main">
                             <span class="text-primary-text font-black">🏷️ RAM & CPU Unlimited</span>
                             <span class="text-red-500 font-black text-xl">Rp11.000</span>
@@ -101,79 +269,21 @@
                 <div class="bg-primary-bg p-8 rounded-xl shadow-lg border-2 border-primary-main">
                     <h3 class="text-3xl font-bold text-primary-main mb-6 border-b pb-3 border-primary-main/30">KENAPA HARUS BELI ASTA PANEL?</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-primary-main mr-3 text-2xl">☁</span>
-                            <div>
-                                <strong class="text-primary-text">VPS Terpisah</strong>
-                                <p class="text-primary-text/80">Anti rusuh & delay. Jaminan stabilitas server untuk performa maksimal.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary-main mr-3 text-2xl">⚙️</span>
-                            <div>
-                                <strong class="text-primary-text">Spek Kenceng</strong>
-                                <p class="text-primary-text/80">R16 C8 / R16 C4. Kami sediakan hardware terbaik, bukan kaleng-kaleng.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary-main mr-3 text-2xl">📆</span>
-                            <div>
-                                <strong class="text-primary-text">Aktif & Bergaransi</strong>
-                                <p class="text-primary-text/80">Aktif 30 Hari, Garansi 15 Hari! Keamanan Anda terjamin.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start border-l-4 border-red-500 pl-4 py-2 bg-red-500/10 rounded-r-lg">
-                            <span class="text-red-500 mr-3 text-2xl">⚠️</span>
-                            <div>
-                                <strong class="text-red-500">Jaminan Ganti Unit</strong>
-                                <p class="text-primary-text/80">Panel ke-del? Diganti sama yang baru selama masa garansi masih berlaku.</p>
-                            </div>
-                        </li>
+                        <li class="flex items-start"><span class="text-primary-main mr-3 text-2xl">☁</span><div><strong class="text-primary-text">VPS Terpisah</strong><p class="text-primary-text/80">Anti rusuh & delay. Jaminan stabilitas server untuk performa maksimal.</p></div></li>
+                        <li class="flex items-start"><span class="text-primary-main mr-3 text-2xl">⚙️</span><div><strong class="text-primary-text">Spek Kenceng</strong><p class="text-primary-text/80">R16 C8 / R16 C4. Kami sediakan hardware terbaik, bukan kaleng-kaleng.</p></div></li>
+                        <li class="flex items-start"><span class="text-primary-main mr-3 text-2xl">📆</span><div><strong class="text-primary-text">Aktif & Bergaransi</strong><p class="text-primary-text/80">Aktif 30 Hari, Garansi 15 Hari! Keamanan Anda terjamin.</p></div></li>
+                        <li class="flex items-start border-l-4 border-red-500 pl-4 py-2 bg-red-500/10 rounded-r-lg"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-red-500">Jaminan Ganti Unit</strong><p class="text-primary-text/80">Panel ke-del? Diganti sama yang baru selama masa garansi masih berlaku.</p></div></li>
                     </ul>
                     
-                    <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20beli%20Panel%20Hosting%20Asta" class="mt-8 w-full block text-center py-3 font-bold rounded-full bg-primary-main text-black button-neon-small transition-all hover:scale-[1.05]">
-                        ORDER PANEL SEKARANG
+                    <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20beli%20Panel%20Hosting%20Asta" class="mt-8 w-full block text-center py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small transition-all hover:scale-[1.05]">
+                        ORDER PANEL SEKARANG 🔥
                     </a>
                 </div>
             </div>
             
             <div class="text-center mt-10 space-y-3">
-                <a href="https://chat.whatsapp.com/EIcpvmpzp1B08GmqfL6LcI?mode=ems_copy_c" target="_blank" class="text-primary-accent hover:text-primary-main block text-lg transition-colors underline">📂 Grub Transaksi (Klik untuk Gabung)</a>
-                <a href="https://whatsapp.com/channel/0029Vb1XXOw4IBhFS0Q6bc2B" target="_blank" class="text-primary-accent hover:text-primary-main block text-lg transition-colors underline">🌐 Channel WA / Testimoni (Klik untuk Lihat)</a>
-            </div>
-        </section>
-
-        <section id="produk" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-5xl font-extrabold text-center mb-16 text-primary-text">PRODUK S+ TIER</h2>
-            
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-6 rounded-xl border-4 border-primary-main/70 bg-secondary-bg hover:shadow-2xl product-card transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-3xl font-bold text-primary-main mb-2">SC JUSTIN V1 GEN2</h3>
-                    <p class="text-primary-text/80 mb-4 font-light">S+ Tier Script. All Funct New, Instant Forclose, Freezee No Clik.</p>
-                    <div class="space-y-2 mb-6">
-                        <p class="text-primary-text font-mono">PO: <span class="text-primary-main font-bold">40K</span></p>
-                        <p class="text-primary-text font-mono">VIA TELE: <span class="text-primary-main font-bold">60K</span></p>
-                    </div>
-                    <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20beli%20SC%20Justin%20V1%20Gen2" class="w-full block text-center py-3 font-bold rounded-full bg-primary-main text-black button-neon-small">
-                        BELI SEKARANG
-                    </a>
-                </div>
-
-                <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
-                    <h3 class="text-3xl font-bold text-primary-main mb-2">Murnokos</h3>
-                    <p class="text-primary-text/80 mb-4 font-light">Script anti-serangan/pelindung perangkat. Pertahanan S+ Tier.</p>
-                    <button class="w-full py-3 font-bold rounded-full bg-primary-accent/20 text-primary-main opacity-70 cursor-not-allowed">
-                        LIHAT DETAIL
-                    </button>
-                </div>
-
-                <div class="p-6 rounded-xl border-2 border-primary-accent/50 bg-secondary-bg product-card transition-all duration-300 hover:shadow-xl">
-                    <h3 class="text-3xl font-bold text-primary-main mb-2">Mursuuntik</h3>
-                    <p class="text-primary-text/80 mb-4 font-light">Script penyerang. Serangan Boom Jump, merusak target.</p>
-                    <button class="w-full py-3 font-bold rounded-full bg-primary-accent/20 text-primary-main opacity-70 cursor-not-allowed">
-                        LIHAT DETAIL
-                    </button>
-                </div>
+                <a href="https://chat.whatsapp.com/EIcpvmpzp1B08GmqfL6LcI?mode=ems_copy_c" target="_blank" class="text-primary-accent hover:text-primary-main block text-lg transition-colors underline font-medium">📂 GRUP TRANSAKSI (KLIK JOIN)</a>
+                <a href="https://whatsapp.com/channel/0029Vb1XXOw4IBhFS0Q6bc2B" target="_blank" class="text-primary-accent hover:text-primary-main block text-lg transition-colors underline font-medium">🌐 CHANNEL WA / TESTIMONI (KLIK LIHAT)</a>
             </div>
         </section>
 
@@ -190,8 +300,8 @@
                             <li class="flex items-center"><span class="text-primary-main mr-2">⚡</span> Mendapat Sc Setiap Update</li>
                             <li class="flex items-center"><span class="text-primary-main mr-2">⚡</span> Bisa Open PO Sendiri</li>
                         </ul>
-                        <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20jadi%20Reseller%20Justin" class="w-full block py-3 font-bold rounded-full bg-primary-accent/50 text-black hover:bg-primary-main transition-colors">
-                            DAFTAR RESELLER
+                        <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20jadi%20Reseller%20Justin" class="w-full block py-3 font-extrabold rounded-full bg-primary-accent/50 text-black hover:bg-primary-main transition-colors">
+                            DAFTAR RESELLER 🤝
                         </a>
                     </div>
                     
@@ -203,8 +313,8 @@
                             <li class="flex items-center"><span class="text-primary-main mr-2">⭐</span> Mendapatkan Fungsi Baru Lebih Cepat</li>
                             <li class="flex items-center"><span class="text-primary-main mr-2">⭐</span> Layanan Prioritas</li>
                         </ul>
-                        <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20jadi%20Buyer%20VIP%20Justin" class="w-full block py-3 font-bold rounded-full bg-primary-accent/50 text-black hover:bg-primary-main transition-colors">
-                            DAFTAR VIP
+                        <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20jadi%20Buyer%20VIP%20Justin" class="w-full block py-3 font-extrabold rounded-full bg-primary-accent/50 text-black hover:bg-primary-main transition-colors">
+                            DAFTAR VIP ⭐
                         </a>
                     </div>
 
@@ -217,8 +327,8 @@
                             <li class="flex items-center"><span class="text-primary-main mr-2">👑</span> Nama Masuk Credit SC</li>
                             <li class="flex items-center"><span class="text-primary-main mr-2">👑</span> Semua Keuntungan Reseller & VIP</li>
                         </ul>
-                        <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20jadi%20Partner%20Justin" class="w-full block py-3 font-bold rounded-full bg-primary-main text-black button-neon-small shadow-lg">
-                            DAFTAR PARTNER
+                        <a href="https://wa.me/6285119966904?text=Halo%20saya%20minat%20jadi%20Partner%20Justin" class="w-full block py-3 font-extrabold rounded-full bg-primary-main text-black button-neon-small shadow-lg">
+                            DAFTAR PARTNER 👑
                         </a>
                     </div>
                 </div>
@@ -230,6 +340,66 @@
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.0003 2.00033C6.48666 2.00033 2.00033 6.48666 2.00033 12.0003C2.00033 13.9298 2.53503 15.748 3.51336 17.2917L2.40836 21.6117L6.87836 20.5053C8.36107 21.3789 10.125 21.8488 12.0003 21.8488C17.514 21.8488 22.0003 17.3625 22.0003 12.0003C22.0003 6.48666 17.514 2.00033 12.0003 2.00033ZM16.327 15.658C16.148 16.0357 15.7327 16.0792 15.398 15.9865C14.887 15.8459 14.3417 15.6322 13.8058 15.3468C12.7831 14.8087 11.724 14.1023 10.8711 13.2494C10.0182 12.3965 9.31185 11.3574 8.77376 10.3347C8.48833 9.79878 8.27464 9.25345 8.13401 8.74246C8.04135 8.40775 8.0848 7.99245 8.4625 7.81347L8.85248 7.62539C9.17648 7.47161 9.36647 7.65481 9.47913 7.89332C9.65811 8.26127 10.1255 9.30829 10.1873 9.49755C10.2799 9.87525 10.2222 10.2905 9.99863 10.5925L9.67035 11.0068C9.52599 11.196 9.49712 11.3934 9.61053 11.6669C9.72394 11.9404 9.87062 12.1895 10.1718 12.5562C10.473 12.9229 10.7441 13.2359 11.0858 13.5678C11.5323 14.0094 11.9678 14.3761 12.3345 14.6773C12.608 14.7907 12.8054 14.7619 13.0076 14.6175L13.4219 14.2892C13.7239 14.0656 14.1392 14.0079 14.5169 14.0975C14.7061 14.1593 15.7532 14.6309 16.1211 14.8099C16.3596 14.9225 16.5428 15.1125 16.389 15.4365L16.327 15.658Z"/></svg>
     </a>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+
+            // 1. Fungsi untuk mengatur tema
+            const setTheme = (theme) => {
+                if (theme === 'dark') {
+                    html.classList.remove('light-theme');
+                    html.classList.add('dark-theme');
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    html.classList.remove('dark-theme');
+                    html.classList.add('light-theme');
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                    localStorage.setItem('theme', 'light');
+                }
+            };
+
+            // 2. Cek tema tersimpan saat halaman dimuat
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            // 3. Event Listener untuk tombol ganti tema
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.classList.contains('light-theme') ? 'light' : 'dark';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                setTheme(newTheme);
+            });
+            
+            // 4. Animasi Stat Bar pada section Benefits (Animasi mengisi bar)
+            const animateStatBars = () => {
+                document.querySelectorAll('#benefits .stat-bar').forEach(bar => {
+                    const statValue = bar.getAttribute('data-stat'); 
+                    bar.style.width = `${statValue}%`;
+                });
+            };
+
+            // Panggil animasi saat section benefits terlihat
+            const benefitsSection = document.getElementById('benefits');
+            if (benefitsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateStatBars();
+                            observer.unobserve(entry.target); // Hentikan observasi setelah animasi
+                        }
+                    });
+                }, { threshold: 0.5 }); // Mulai animasi ketika 50% section terlihat
+
+                observer.observe(benefitsSection);
+            }
+
+            console.log("JEEKAGENOU Store Loaded: SUPER-RISE Mode Active!");
+        });
+    </script>
 </body>
-    </html>
+</html>
